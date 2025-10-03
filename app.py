@@ -32,7 +32,8 @@ def compare_pdfs(fileName1, fileName2):
     
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'your_super_secret_key_here_replace_me'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY') 
+print(os.urandom(24).hex())
 
 UPLOAD_FOLDER = 'temp_uploads' #creates a variable to handle file upload
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # this helps to store in app.config
